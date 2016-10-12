@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mappi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Values")]
     public class ValuesController : Controller
     {
         // GET api/values
