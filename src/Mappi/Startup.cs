@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.Swagger.Model;
 
 namespace Mappi
 {
@@ -29,7 +30,30 @@ namespace Mappi
         {
             // Add framework services.
             services.AddMvc();
+
             services.AddSwaggerGen();
+
+            // Add the detail information for the API.
+            services.ConfigureSwaggerGen(options =>
+            {
+                options.SingleApiVersion(new Info
+                {
+                    Version = "v1",
+                    Title = "Mappi API",
+                    Description = "",
+                    TermsOfService = "",
+                    Contact = new Contact { Name = "Henrik Bergqvist", Email = "mail@henrikbergqvist.com", Url = "https://github.com/hbbq/Mappi" },
+                });
+
+                //Determine base path for the application.
+                var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                var commentsFileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + ".XML";
+                var commentsFile = System.IO.Path.Combine(baseDirectory, commentsFileName);
+
+                //Set the comments path for the swagger json and ui.
+                options.IncludeXmlComments(commentsFile);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +65,7 @@ namespace Mappi
             app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUi();
+           
 
         }
     }
