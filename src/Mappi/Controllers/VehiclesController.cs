@@ -16,6 +16,9 @@ namespace Mappi.Controllers
     public class VehiclesController : Controller
     {
 
+        // 57983000 12433800
+        // 57882000 12567700
+
         /// <summary>
         /// Get information about all vehicles in the area
         /// </summary>
