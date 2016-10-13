@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Mappi.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mappi.Controllers
 {
@@ -25,9 +26,12 @@ namespace Mappi.Controllers
         /// <returns></returns>
         [HttpGet]
         public IEnumerable<Vehicle> Get(
-            [FromQuery] long minx, [FromQuery] long miny, [FromQuery] long maxx, [FromQuery] long maxy)
+            [FromQuery, Required] long minx, 
+            [FromQuery, Required] long miny, 
+            [FromQuery, Required] long maxx,
+            [FromQuery, Required] long maxy)
         {
-            return new [] { new Vehicle { Direction = 48, Name = "Test", X = 12123, Y = 123898 } };
+            return new List<Vehicle> { new Vehicle { Direction = 48, Name = "Test", X = 12123, Y = 123898 } };
         }
 
      }

@@ -49,7 +49,7 @@ namespace Mappi
                 var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 var commentsFileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + ".XML";
                 var commentsFile = System.IO.Path.Combine(baseDirectory, commentsFileName);
-
+                
                 //Set the comments path for the swagger json and ui.
                 options.IncludeXmlComments(commentsFile);
             });
