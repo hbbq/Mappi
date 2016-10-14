@@ -22,19 +22,12 @@ namespace Mappi.Controllers
         /// <summary>
         /// Get information about all vehicles in the area
         /// </summary>
-        /// <param name="minx">Minimum longitude of the area times 100 000</param>
-        /// <param name="miny">Minimum latitude of the area times 100 000</param>
-        /// <param name="maxx">Maximum longitude of the area times 100 000</param>
-        /// <param name="maxy">Maximum latitude of the area times 100 000</param>
+        /// <param name="area">The area to search</param>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Vehicle> Get(
-            [FromQuery, Required] long minx, 
-            [FromQuery, Required] long miny, 
-            [FromQuery, Required] long maxx,
-            [FromQuery, Required] long maxy)
+        public IEnumerable<Vehicle> Get([FromBody, Required] Area area)
         {
-            return new List<Vehicle> { new Vehicle { Direction = 48, Name = "Test", X = 12123, Y = 123898 } };
+            return new List<Vehicle> { new Vehicle { Direction = 48, Name = "60", X = 12123, Y = 123898, Type = "Buss" } };
         }
 
      }
