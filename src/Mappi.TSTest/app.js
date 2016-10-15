@@ -1,3 +1,9 @@
+/// <reference path="scripts/typings/jquery/jquery.d.ts" />
+var area = (function () {
+    function area() {
+    }
+    return area;
+}());
 var Greeter = (function () {
     function Greeter(element) {
         this.element = element;
@@ -7,13 +13,18 @@ var Greeter = (function () {
         this.span.innerText = new Date().toUTCString();
     }
     Greeter.prototype.start = function () {
-        var _this = this;
-        this.timerToken = setInterval(function () { return _this.span.innerHTML = new Date().toUTCString(); }, 500);
+        this.readApi();
     };
     Greeter.prototype.stop = function () {
         clearTimeout(this.timerToken);
     };
     Greeter.prototype.readApi = function () {
+        var a = new area();
+        a.minx = 0;
+        a.miny = 1;
+        a.maxx = 2;
+        a.maxy = 3;
+        $.get("http://localhost:52080/api/vehicles", a, function (e) { alert(JSON.stringify(e)); });
     };
     return Greeter;
 }());
@@ -22,3 +33,4 @@ window.onload = function () {
     var greeter = new Greeter(el);
     greeter.start();
 };
+//# sourceMappingURL=app.js.map

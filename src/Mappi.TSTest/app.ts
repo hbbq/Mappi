@@ -1,4 +1,13 @@
-﻿class Greeter {
+﻿/// <reference path="scripts/typings/jquery/jquery.d.ts" />
+
+class area {
+    minx: number;
+    miny: number;
+    maxx: number;
+    maxy: number;
+}
+
+class Greeter {
     element: HTMLElement;
     span: HTMLElement;
     timerToken: number;
@@ -12,7 +21,7 @@
     }
 
     start() {
-        this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
+        this.readApi();
     }
 
     stop() {
@@ -20,7 +29,16 @@
     }
 
     readApi() {
-        
+        var a = new area();
+        a.minx = 0;
+        a.miny = 1;
+        a.maxx = 2;
+        a.maxy = 3;
+        $.get(
+            "http://localhost:52080/api/vehicles",
+            a,
+            e => { alert(JSON.stringify( e)); }
+        );
     }
 
 }

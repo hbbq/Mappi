@@ -13,6 +13,7 @@ namespace Mappi.Controllers
     /// Information about vehicles
     /// </summary>
     [Route("api/Vehicles")]
+    [Microsoft.AspNetCore.Cors.EnableCors("AllAllowed")]
     public class VehiclesController : Controller
     {
 
@@ -22,12 +23,20 @@ namespace Mappi.Controllers
         /// <summary>
         /// Get information about all vehicles in the area
         /// </summary>
-        /// <param name="area">The area to search</param>
+        /// <param name="minx">?</param>
+        /// <param name="miny">?</param>
+        /// <param name="maxx">?</param>
+        /// <param name="maxy">?</param>
         /// <returns></returns>
         [HttpGet]
-        public IEnumerable<Vehicle> Get([FromBody, Required] Area area)
+        public IEnumerable<Vehicle> Get(
+            [Required] long minx,
+            [Required] long miny,
+            [Required] long maxx,
+            [Required] long maxy
+        )
         {
-            return new List<Vehicle> { new Vehicle { Direction = 48, Name = "60", X = 12123, Y = 123898, Type = "Buss" } };
+            return new List<Vehicle> { new Vehicle { Direction = 48, Name = "60", X = minx, Y = maxy, Type = "Buss" } };
         }
 
      }
