@@ -37,7 +37,7 @@ class Greeter {
         $.get(
             "http://localhost:52080/api/vehicles",
             a,
-            e => { alert(JSON.stringify( e)); }
+            e => { this.element.innerHTML = JSON.stringify(e); }
         );
     }
 

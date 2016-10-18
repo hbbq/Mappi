@@ -19,12 +19,13 @@ var Greeter = (function () {
         clearTimeout(this.timerToken);
     };
     Greeter.prototype.readApi = function () {
+        var _this = this;
         var a = new area();
         a.minx = 0;
         a.miny = 1;
         a.maxx = 2;
         a.maxy = 3;
-        $.get("http://localhost:52080/api/vehicles", a, function (e) { alert(JSON.stringify(e)); });
+        $.get("http://localhost:52080/api/vehicles", a, function (e) { _this.element.innerHTML = JSON.stringify(e); });
     };
     return Greeter;
 }());
