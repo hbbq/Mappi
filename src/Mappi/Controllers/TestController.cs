@@ -13,31 +13,13 @@ namespace Mappi.Controllers
     public class TestController : Controller
     {
         
-        // GET api/values/5
+        // GET api/test
         [HttpGet]
         public string Get(string value)
         {
             if (value.ToLowerInvariant() == "ping") return "Pong";
             return value;
         }
-
-        // POST api/values
-        [HttpPost]
-        public string Post([FromBody]string value)
-        {
-            return "";
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        
     }
 }
