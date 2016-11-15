@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "exports": {
+    "Mappi.Connectors.VT/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/Mappi.Connectors.VT.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Mappi.Connectors.VT.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Mappi.Connectors.VT.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

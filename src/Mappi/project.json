@@ -19,7 +19,13 @@
   },
 
   "frameworks": {
-    "net461": { }
+    "net461": {
+      "dependencies": {
+        "Mappi.Connectors.VT": {
+          "target": "project"
+        }
+      }
+    }
   },
 
   "buildOptions": {

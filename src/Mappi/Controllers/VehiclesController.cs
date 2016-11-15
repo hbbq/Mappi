@@ -17,6 +17,11 @@ namespace Mappi.Controllers
     public class VehiclesController : Controller
     {
 
+        private Connectors.VT.Service GetVTService()
+        {
+            return new Connectors.VT.Service();
+        }
+
         // 57983000 12433800
         // 57882000 12567700
 
@@ -36,6 +41,7 @@ namespace Mappi.Controllers
             [Required] long maxy
         )
         {
+            var ret = GetVTService().GetVehicles(minx, miny, maxx, maxy);
             return new List<Vehicle> { new Vehicle { Direction = 48, Name = "60", X = minx, Y = maxy, Type = "Buss" } };
         }
 
